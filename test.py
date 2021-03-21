@@ -15,6 +15,14 @@ class Test(unittest.TestCase):
         test_domino = '||||||||'
         self.assertEqual('||||||||', simulate_domino(test_domino, True))
 
+    def test_when_simulate_backward_domino_then_got_correct_domino_arrangement(self):
+        test_domino = '||///\\\\\\|////|'
+        self.assertEqual('||//||\\\\|///||', simulate_domino(test_domino, False))
+
+    def test_when_simulate_backward_domino_on_vertical_domino_then_domino_arrangement_not_change(self):
+        test_domino = '||||||||'
+        self.assertEqual('||||||||', simulate_domino(test_domino, False))
+
 
 if __name__ == "__main__":
     unittest.main()

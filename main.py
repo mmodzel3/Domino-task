@@ -11,7 +11,7 @@ def simulate_domino(domino, forward):
     if forward:
         return simulate_forward_domino(domino)
     else:
-        raise Exception('Not implemented')
+        return simulate_backward_domino(domino)
 
 
 def simulate_forward_domino(domino):
@@ -31,6 +31,28 @@ def simulate_forward_domino(domino):
             result += '\\'
         else:
             result += cube
+
+    return result
+
+
+def simulate_backward_domino(domino):
+    result = domino[0]
+
+    for pos in range(1, len(domino)-1):
+        cube = domino[pos]
+
+        if cube == '|':
+            result += cube
+            continue
+
+        if cube == '/' and domino[pos+1] != '/':
+            result += '|'
+        elif cube == '\\' and domino[pos-1] != '\\':
+            result += '|'
+        else:
+            result += cube
+
+    result += domino[len(domino)-1]
 
     return result
 
