@@ -63,8 +63,8 @@ def main():
 
     parser.add_argument('iterations', type=int, help='iterations of domino game')
 
-    parser.add_argument('--forward', dest='forward', action='store_true')
-    parser.add_argument('--backward', dest='forward', action='store_false')
+    parser.add_argument('--forward', dest='forward', action='store_true', help='forward domino simulation')
+    parser.add_argument('--backward', dest='forward', action='store_false', help='backward domino simulation')
     parser.set_defaults(forward=True)
 
     args = parser.parse_args()
